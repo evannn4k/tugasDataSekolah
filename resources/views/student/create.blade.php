@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-center items-center">
             <div class="w-1/2 bg-white p-4 rounded-xl m-6 shadow-xl">
-                <form action="">
+                <form action="" method="POST">
                 @csrf
                     <div class="flex justify-between">
                         <h1 class="text-2xl font-semibold">Added New Students</h1>
