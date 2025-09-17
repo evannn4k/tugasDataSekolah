@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data sekolah</title>
+    <link rel="shortcut icon" href="{{ asset("assets/images/logo-skamuhi.png") }}" type="image/x-icon">
 
     <!-- bootstrap -->
     <!-- <link rel="stylesheet" href="{{ asset("assets/bootstrap/css/bootstrap.min.css") }}"> -->
@@ -24,17 +25,17 @@
 
 <body class="font-[Montserrat] fons-sans min-h-lvh flex flex-col">
 
-    <header class="bg-gray-100 p-3 border-b border-gray-300">
+    <header class="bg-white p-3 border-b border-gray-300">
         <div class="container mx-auto px-4">
             <p class="text-lg">SMK Muhammadiyah 1 Weleri</p>
         </div>
     </header>
 
-    <nav class="w-full p-3 border-b border-gray-300">
+    <nav class="w-full border-b bg-gray-100 border-gray-300">
         <div class="w-full flex justify-center gap-4">
-            <a href="{{ route("index") }}" class="px-3 py-1 {{ request()->routeIs("index") ? "font-medium" : "" }}">Home</a>
-            <a href="{{ route("student-index") }}" class="px-3 py-1 {{ request()->routeIs("student-index") ? "font-medium" : "" }}">Student</a>
-            <a href="{{ route("teacher-index") }}" class="px-3 py-1 {{ request()->routeIs("teacher-index") ? "font-medium" : "" }}">Teacher</a>
+            <a href="{{ route("index") }}" class="px-3 py-2 {{ request()->routeIs("index") ? "border-b-2 border-gray-900 font-semibold" : "" }}">Home</a>
+            <a href="{{ route("student.index") }}" class="px-3 py-2 {{ request()->routeIs("student.index") ? "border-b-2 border-gray-900 font-semibold" : "" }}">Student</a>
+            <a href="{{ route("teacher.index") }}" class="px-3 py-2 {{ request()->routeIs("teacher.index") ? "border-b-2 border-gray-900 font-semibold" : "" }}">Teacher</a>
         </div>
     </nav>
 
