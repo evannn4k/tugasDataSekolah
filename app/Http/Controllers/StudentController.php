@@ -10,4 +10,9 @@ class StudentController extends Controller
     {
         return view("student.index");
     }
+
+    public static function create() 
+    {
+        return view("student.create");
+    }
 }
