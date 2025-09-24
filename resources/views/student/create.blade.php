@@ -1,11 +1,11 @@
 @extends("layout.app")
 
 @section("content")
-<div class="bg-gray-200 w-full">
+<div class="bg-gray-100 w-full">
     <div class="container mx-auto px-4">
         <div class="flex justify-center items-center">
-            <div class="w-1/2 bg-white p-4 rounded-xl m-6 shadow-xl">
-                <form action="" method="POST">
+            <div class="w-2/5 bg-white p-4 rounded-xl m-6 shadow-xl">
+                <form action="{{ route("student.store") }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="flex justify-between">
                         <h1 class="text-2xl font-semibold">Added New Students</h1>
@@ -24,9 +24,14 @@
                         <input type="email" name="email" id="email" class="border border-gray-300 rounded-lg text-sm py-1 px-2" placeholder="Enter Email">
                     </div>
                     <div class="flex flex-col gap-1 my-4">
-                        <label for="Name" class="text-base font-medium">Name</label>
-                        <select name="" id="" class="border border-gray-300 rounded-lg text-sm py-1 px-2">
+                        <label for="Name" class="text-base font-medium">Major</label>
+                        <select name="major" id="major" class="border border-gray-300 rounded-lg text-sm py-1 px-2">
                             <option value="" disabled selected>Choose a major</option>
+                            <option value="AKL">AKL</option>
+                            <option value="MPLB">MPLB</option>
+                            <option value="PPLG">PPLG</option>
+                            <option value="TB">TB</option>
+                            <option value="TB">Wali</option>
                         </select>                        
                     </div>
                     <div class="flex flex-col gap-1 my-4">
