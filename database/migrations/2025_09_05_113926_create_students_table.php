@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("nisn", 20)->unique();
             $table->string("name", 100);
             $table->string("email", 100);
-            $table->enum("major", ["AKL", "MPLB", "PPLG", "Kuliner"]);
+            $table->enum("major", ["AKL", "MPLB", "PPLG", "TB"]);
             $table->string("photo", 255);
             $table->timestamps();
         });
