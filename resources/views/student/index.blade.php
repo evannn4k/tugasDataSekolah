@@ -10,37 +10,46 @@
         <div class="bg-white rounded-2xl p-4 flex flex-col gap-4">
 
             <div class="w-full flex justify-between items-center">
-                <p class="font-medium text-2xl">All Student 😍😍😍</p>
+                <p class="font-medium text-2xl">All Student</p>
                 <a href="{{ route("student.create") }}" class="text-sm bg-blue-500 p-3 flex items-center gap-2 text-white rounded-xl duration-150 ease-in-out hover:scale-102 hover:bg-blue-500/90 active:scale-99"><i class="fa-solid fa-plus"></i> Add Student</a>
             </div>
 
             <div class="w-full grid grid-cols-4 gap-4">
-                <div class="border border-gray-300 px-4 py-6 rounded-xl flex flex-col gap-2 shadow-md">
-                    <p class="text-gray-500 font-medium">AKL class students</p>
-                    <p class="font-semibold text-2xl">24 Students</p>
-                </div>
-                <div class="border border-gray-300 px-4 py-6 rounded-xl flex flex-col gap-2 shadow-md">
-                    <p class="text-gray-500 font-medium">MPLB class students</p>
-                    <p class="font-semibold text-2xl">26 Students</p>
-                </div>
-                <div class="border border-gray-300 px-4 py-6 rounded-xl flex flex-col gap-2 shadow-md">
-                    <p class="text-gray-500 font-medium">PPLG class students</p>
-                    <p class="font-semibold text-2xl">36 Students</p>
-                </div>
-                <div class="border border-gray-300 px-4 py-6 rounded-xl flex flex-col gap-2 shadow-md">
-                    <p class="text-gray-500 font-medium">TB class students</p>
-                    <p class="font-semibold text-2xl">1 Students</p>
-                </div>
+                <a href="{{ route("student.major", "AKL") }}" class="border border-green-500 shadow-sm shadow-green-500 rounded-xl fle bg-gradient-to-r from-green-500/10 to-green-500/60">
+                    <div class="flex-1 flex flex-col gap-2 px-4 pb-8 py-6 bg-[url({{ asset("assets/images/circle.png") }})] bg-no-repeat bg-right bg-contain">
+                        <p class="text-black/60 font-medium">AKL class students</p>
+                        <p class="font-semibold text-2xl text-green-    /80">{{ $aklCount }} Students</p>
+                    </div>
+                </a>
+                <a href="{{ route("student.major", "MPLB") }}" class="border border-yellow-500 shadow-sm shadow-yellow-500 rounded-xl fle bg-gradient-to-r from-yellow-500/10 to-yellow-500/60">
+                    <div class="flex-1 flex flex-col gap-2 px-4 pb-8 py-6 bg-[url({{ asset("assets/images/circle.png") }})] bg-no-repeat bg-right bg-contain">
+                        <p class="text-black/60 font-medium">MPLB class students</p>
+                        <p class="font-semibold text-2xl text-black/80">{{ $mplbCount }} Students</p>
+                    </div>
+                </a>
+                <a href="{{ route("student.major", "PPLG") }}" class="border border-sky-500 shadow-sm shadow-sky-500 rounded-xl fle bg-gradient-to-r from-sky-500/10 to-sky-500/60">
+                    <div class="flex-1 flex flex-col gap-2 px-4 pb-8 py-6 bg-[url({{ asset("assets/images/circle.png") }})] bg-no-repeat bg-right bg-contain">
+                        <p class="text-black/60 font-medium">PPLG class students</p>
+                        <p class="font-semibold text-2xl text-black/80">{{ $pplgCount }} Students</p>
+                    </div>
+                </a>
+                <a href="{{ route("student.major", "TB") }}" class="border border-pink-500 shadow-sm shadow-pink-500 rounded-xl fle bg-gradient-to-r from-pink-500/10 to-pink-500/60">
+                    <div class="flex-1 flex flex-col gap-2 px-4 pb-8 py-6 bg-[url({{ asset("assets/images/circle.png") }})] bg-no-repeat bg-right bg-contain">
+                        <p class="text-black/60 font-medium">TB class students</p>
+                        <p class="font-semibold text-2xl text-black/80">{{ $tbCount }} Students</p>
+                    </div>
+                </a>
+                
             </div>
 
             <div class="flex flex-col gap-2">
                 <div class="w-full flex justify-between border-b border-gray-300">
                     <div class="flex">
-                        <a href="" class="py-3 px-6 text-sm font-medium hover:bg-gray-100 border-b-2 border-blue-600">All</a>
-                        <a href="" class="py-3 px-6 text-sm font-medium hover:bg-gray-100">AKL</a>
-                        <a href="" class="py-3 px-6 text-sm font-medium hover:bg-gray-100">MPLB</a>
-                        <a href="" class="py-3 px-6 text-sm font-medium hover:bg-gray-100">PPLG</a>
-                        <a href="" class="py-3 px-6 text-sm font-medium hover:bg-gray-100">TB</a>
+                        <a href="{{ route("student.index") }}" class="py-3 px-6 text-sm font-medium hover:bg-gray-100 {{ request()->routeIs("student.index") ? "border-b-2 border-blue-600" : "" }}">All</a>
+                        <a href="{{ route("student.major", "AKL") }}" class="py-3 px-6 text-sm font-medium hover:bg-gray-100 {{ request()->route('major') == "AKL" ? "border-b-2 border-blue-600" : "" }}">AKL</a>
+                        <a href="{{ route("student.major", "MPLB") }}" class="py-3 px-6 text-sm font-medium hover:bg-gray-100 {{ request()->route('major') == "MPLB" ? "border-b-2 border-blue-600" : "" }}">MPLB</a>
+                        <a href="{{ route("student.major", "PPLG") }}" class="py-3 px-6 text-sm font-medium hover:bg-gray-100 {{ request()->route('major') == "PPLG" ? "border-b-2 border-blue-600" : "" }}">PPLG</a>
+                        <a href="{{ route("student.major", "TB") }}" class="py-3 px-6 text-sm font-medium hover:bg-gray-100 {{ request()->route('major') == "TB" ? "border-b-2 border-blue-600" : "" }}">TB</a>
                     </div>
                     <div class="flex">
                         <button class="py-3 px-4 text-sm font-medium">Short By <i class="fa-solid fa-angle-down"></i></button>
@@ -74,11 +83,23 @@
                                 <td class="px-2 py-auto">{{ $student->nisn }}</td>
                                 <td class="px-2 py-auto">{{ $student->email }}</td>
                                 <td class="px-2 py-auto">
-                                    <a href="" class="bg-cyan-100 text-cyan-600 py-1 px-3 rounded-full">PPLG</a>
+                                    <div class="flex">
+                                        <a href="{{ route("student.major", $student->major) }}" class="
+                                        @if ($student->major == "AKL")
+                                            bg-green-100 text-green-600
+                                            @elseif($student->major == "MPLB")
+                                            bg-yellow-100 text-yellow-600
+                                            @elseif($student->major == "PPLG")
+                                            bg-sky-100 text-sky-600
+                                            @elseif($student->major == "TB")
+                                            bg-pink-100 text-pink-600
+                                            @endif
+                                            w-17 py-1 text-center rounded-full">{{ $student->major }}</a>
+                                    </div>
                                 </td>
                                 <td class="px-2 py-3 flex gap-2 justify-center">
-                                    <a href="" class="bg-green-500 text-white py-2 px-3 rounded-lg"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="" class="bg-red-500 text-white py-2 px-3 rounded-lg"><i class="fa-solid fa-trash-can"></i></a>
+                                    <a href="{{ route("student.edit", $student->id) }}" class="bg-green-500 text-white py-2 px-3 rounded-lg"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route("student.destroy", $student->id) }}" class="bg-red-500 text-white py-2 px-3 rounded-lg"><i class="fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tr>
                             @endforeach

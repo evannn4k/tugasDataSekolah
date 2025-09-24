@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-center items-center">
             <div class="w-2/5 bg-white p-4 rounded-xl m-6 shadow-xl">
-                <form action="{{ route("student.store") }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route("student.update", $student->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="flex justify-between">
                         <h1 class="text-2xl font-semibold">Added New Students</h1>
@@ -13,24 +13,24 @@
                     </div>
                     <div class="flex flex-col gap-1 my-4">
                         <label for="name" class="text-base font-medium">Name</label>
-                        <input type="text" name="name" id="name" class="border border-gray-300 rounded-lg text-sm py-1 px-2" placeholder="Enter Name">
+                        <input type="text" name="name" id="name" class="border border-gray-300 rounded-lg text-sm py-1 px-2" placeholder="Enter Name" value="{{ $student->name }}">
                     </div>
                     <div class="flex flex-col gap-1 my-4">
                         <label for="nisn" class="text-base font-medium">NISN</label>
-                        <input type="number" name="nisn" id="nisn" class="border border-gray-300 rounded-lg text-sm py-1 px-2" placeholder="Enter NISN">
+                        <input type="number" name="nisn" id="nisn" class="border border-gray-300 rounded-lg text-sm py-1 px-2" placeholder="Enter NISN" value="{{ $student->nisn }}">
                     </div>
                     <div class="flex flex-col gap-1 my-4">
                         <label for="email" class="text-base font-medium">Email</label>
-                        <input type="email" name="email" id="email" class="border border-gray-300 rounded-lg text-sm py-1 px-2" placeholder="Enter Email">
+                        <input type="email" name="email" id="email" class="border border-gray-300 rounded-lg text-sm py-1 px-2" placeholder="Enter Email" value="{{ $student->email }}">
                     </div>
                     <div class="flex flex-col gap-1 my-4">
                         <label for="Name" class="text-base font-medium">Major</label>
                         <select name="major" id="major" class="border border-gray-300 rounded-lg text-sm py-1 px-2">
                             <option value="" disabled selected>Choose a major</option>
-                            <option value="AKL">AKL</option>
-                            <option value="MPLB">MPLB</option>
-                            <option value="PPLG">PPLG</option>
-                            <option value="TB">TB</option>
+                            <option value="AKL" {{ ($student->major == "AKL") ? "selected" : "" }}>AKL</option>
+                            <option value="MPLB" {{ ($student->major == "MPLB") ? "selected" : "" }}>MPLB</option>
+                            <option value="PPLG" {{ ($student->major == "PPLG") ? "selected" : "" }}>PPLG</option>
+                            <option value="TB" {{ ($student->major == "TB") ? "selected" : "" }}>TB</option>
                         </select>                        
                     </div>
                     <div class="flex flex-col gap-1 my-4">
