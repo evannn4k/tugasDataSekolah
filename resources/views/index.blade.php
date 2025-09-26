@@ -2,7 +2,7 @@
 
 @section("content")
 <div class="flex-1 flex bg-[url({{ asset("assets/images/bg.jpg") }})] bg-cover bg-no-repeat bg-center">
-    <div class="flex-1 flex justify-center items-center bg-gradient-to-r from-white/80 from-45% to-white/40 to-65%">
+    <div class="flex-1 flex justify-center items-center bg-gradient-to-r from-white from-30% to-white/50 to-80%">
         <div class="container mx-auto px-4">
             <div class="w-full flex items-center">
                 <div class="w-3/5 flex flex-col gap-5 px-12">

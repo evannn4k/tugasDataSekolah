@@ -11,14 +11,23 @@
 
             <div class="w-full flex justify-between items-center">
                 <p class="font-medium text-2xl">All Student</p>
-                <a href="{{ route("student.create") }}" class="text-sm bg-blue-500 p-3 flex items-center gap-2 text-white rounded-xl duration-150 ease-in-out hover:scale-102 hover:bg-blue-500/90 active:scale-99"><i class="fa-solid fa-plus"></i> Add Student</a>
+                <div class="flex items-center gap-4">
+                    @if (!empty($_GET["search"]))
+                    <a href="{{ route("student.index") }}" class="text-red-500 text-sm border border-red-500 rounded-full py-1 px-3 hover:text-red-600 hover:border-red-600 hover:bg-red-50">reset</a>
+                    @endif
+                    <form action="{{ route("student.index") }}" method="GET" class="relative">
+                        <input type="text" name="search" class="border border-gray-400 py-2 pl-2 pr-8 rounded-xl text-sm" placeholder="Search...">
+                        <button type="submit" class="absolute right-0 px-3 py-2 text-sm cursor-pointer text-gray-500 rounded-xl"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                    <a href="{{ route("student.create") }}" class="text-sm bg-blue-500 p-2 flex items-center gap-2 text-white rounded-xl duration-150 ease-in-out hover:scale-102 hover:bg-blue-500/90 active:scale-99"><i class="fa-solid fa-plus"></i> Add Student</a>
+                </div>
             </div>
 
             <div class="w-full grid grid-cols-4 gap-4">
                 <a href="{{ route("student.major", "AKL") }}" class="border border-green-500 shadow-sm shadow-green-500 rounded-xl fle bg-gradient-to-r from-green-500/10 to-green-500/60">
                     <div class="flex-1 flex flex-col gap-2 px-4 pb-8 py-6 bg-[url({{ asset("assets/images/circle.png") }})] bg-no-repeat bg-right bg-contain">
                         <p class="text-black/60 font-medium">AKL class students</p>
-                        <p class="font-semibold text-2xl text-green-    /80">{{ $aklCount }} Students</p>
+                        <p class="font-semibold text-2xl text-black/80">{{ $aklCount }} Students</p>
                     </div>
                 </a>
                 <a href="{{ route("student.major", "MPLB") }}" class="border border-yellow-500 shadow-sm shadow-yellow-500 rounded-xl fle bg-gradient-to-r from-yellow-500/10 to-yellow-500/60">

@@ -19,5 +19,5 @@ Route::post('/student/store', [StudentController::class, "store"])->name("studen
 Route::get('/student/destroy/{id}', [StudentController::class, "destroy"])->name("student.destroy");
 Route::get('/student/edit/{id}', [StudentController::class, "edit"])->name("student.edit");
 Route::post('/student/update/{id}', [StudentController::class, "update"])->name("student.update");
-
+ 
 Route::get('/teacher', [TeacherController::class, "index"])->name("teacher.index");

@@ -8,17 +8,25 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
-    public static function index()
+    public static function index(Request $request)
     {
+        $search = $request->search;
+
         $aklCount = Student::where("major", "AKL")->count();
         $mplbCount = Student::where("major", "MPLB")->count();
         $pplgCount = Student::where("major", "PPLG")->count();
         $tbCount = Student::where("major", "TB")->count();
         $students = Student::all();
-        
+
+        if (!empty($search)) {
+            $students = Student::where("name", "like", "%{$search}%")->get();
+        } else {
+            $students = Student::all();
+        }
+
         return view("student.index", compact(["students", "aklCount", "mplbCount", "pplgCount", "tbCount"]));
     }
-    
+
     public static function major($major)
     {
         $aklCount = Student::where("major", "AKL")->count();
@@ -128,4 +136,18 @@ class StudentController extends Controller
 
         return redirect(route("student.index"))->with("success", "Data has been successfully deleted");
     }
+
+    //     public static function search(Request $request)
+    //     {
+    //         dd(Student::all());
+    //         $search = $request->search;
+
+    //         $aklCount = Student::where("major", "AKL")->count();
+    //         $mplbCount = Student::where("major", "MPLB")->count();
+    //         $pplgCount = Student::where("major", "PPLG")->count();
+    //         $tbCount = Student::where("major", "TB")->count();
+    //         $students = Student::where("name", "like", "%{$search}%")->get();
+
+    //         return view("student.index", compact(["students", "aklCount", "mplbCount", "pplgCount", "tbCount"]));
+    //     }
 }
